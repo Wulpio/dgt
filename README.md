@@ -26,6 +26,7 @@ The project consists of the following modules:
 Ensure you have the following installed:
 - Java 21+
 - Maven 3+
+- Docker
 - A relational database (if using the `basicDbFee` module)
 
 ### Building the Project
@@ -55,6 +56,13 @@ http://localhost:8080/swagger-ui/index.html
 |--------|----------------|-------------------------------------|
 | GET    | `/api/compute`   | Triggers the fee calculation process |
 
+### RabbitMQ
+```sh
+docker pull rabbitmq:3-management
+docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+```
+queue name: 'QUEUE_DEMO_02'
+
 ## Extending the Project
 
 To add a new fee calculation algorithm:
@@ -64,3 +72,4 @@ To add a new fee calculation algorithm:
 
 ## Todos
 - api documentation + examples in swagger
+- embed postgres into test container
