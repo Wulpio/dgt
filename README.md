@@ -39,6 +39,10 @@ mvn clean install
 
 You can start the service using:
 ```sh
+mvn spring-boot:run -pl core -Dspring.profiles.active=postgres
+```
+or with H2 database"
+```sh
 mvn spring-boot:run -pl core
 ```
 
@@ -58,6 +62,5 @@ To add a new fee calculation algorithm:
 2. Register the implementation as a Spring bean.
 3. The `core` module need minor change for detection of the new algorithm
 
-## todos
-- execution of logic can be triggered by message event
-- api documentation in swagger
+## Todos
+- api documentation + examples in swagger
