@@ -73,4 +73,4 @@ To add a new fee calculation algorithm:
 
 ## Todos
 - api documentation + examples in swagger
-- embed postgres into test container
+- embed postgres into test container + adjust rabbitMQ test container integration with github workflow
