@@ -26,6 +26,7 @@ class SmokeTest {
         String url = UriComponentsBuilder
                 .fromUriString("http://localhost:{port}/api/compute")
                 .queryParam("id", 1)
+                .queryParam("algorithm", "basicTableFeeCalculator")
                 .build(port)
                 .toString();
 
@@ -35,5 +36,20 @@ class SmokeTest {
         assertThat(response).isEqualByComparingTo("1.1");
     }
 
+    @Test
+    void GIVEN_correct_request_WHEN_get_THEN_correct_response_is_returned2() {
+
+        String url = UriComponentsBuilder
+                .fromUriString("http://localhost:{port}/api/compute")
+                .queryParam("id", 1)
+                .queryParam("algorithm", "constantFeeCalculator")
+                .build(port)
+                .toString();
+
+        BigDecimal response = restTemplate.getForObject(url, BigDecimal.class);
+
+        assertThat(response).isNotNull();
+        assertThat(response).isEqualByComparingTo("10");
+    }
 
 }

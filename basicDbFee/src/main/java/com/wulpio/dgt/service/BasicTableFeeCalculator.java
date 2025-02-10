@@ -1,7 +1,7 @@
-package com.wulpio.dgt.core.basic.service;
+package com.wulpio.dgt.service;
 
-import com.wulpio.dgt.core.basic.domain.Transaction;
-import com.wulpio.dgt.core.basic.repository.TransactionRepository;
+import com.wulpio.dgt.domain.Transaction;
+import com.wulpio.dgt.repository.TransactionRepository;
 import com.wulpio.dtg.gtw.FeesCalculator;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
