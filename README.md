@@ -16,6 +16,7 @@ The project consists of the following modules:
 - Modular design for easy extension of new fee calculation algorithms.
 - Spring Boot framework for rapid development and deployment.
 - REST API for seamless integration with other applications.
+- RabbitMQ for triggering calculations.
 - Database-backed fee calculation implementation.
 - Example constant fee calculation algorithm.
 
@@ -42,7 +43,7 @@ You can start the service using:
 ```sh
 mvn spring-boot:run -pl core -Dspring.profiles.active=postgres
 ```
-or with H2 database"
+or with H2 database:
 ```sh
 mvn spring-boot:run -pl core
 ```
