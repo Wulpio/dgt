@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigDecimal;
@@ -21,7 +23,7 @@ class SmokeTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void GIVEN_correct_request_WHEN_get_THEN_correct_response_is_returned() {
+    void GIVEN_id_one_and_basicTableFeeCalculator_algorithm_WHEN_get_request_THEN_1_dot_1_is_returned() {
 
         String url = UriComponentsBuilder
                 .fromUriString("http://localhost:{port}/api/compute")
@@ -32,12 +34,13 @@ class SmokeTest {
 
         BigDecimal response = restTemplate.getForObject(url, BigDecimal.class);
 
-        assertThat(response).isNotNull();
-        assertThat(response).isEqualByComparingTo("1.1");
+        assertThat(response)
+                .isNotNull()
+                .isEqualByComparingTo("1.1");
     }
 
     @Test
-    void GIVEN_correct_request_WHEN_get_THEN_correct_response_is_returned2() {
+    void GIVEN_id_one_and_constantFeeCalculator_algorithm_WHEN_get_request_THEN_10_is_returned() {
 
         String url = UriComponentsBuilder
                 .fromUriString("http://localhost:{port}/api/compute")
@@ -48,8 +51,22 @@ class SmokeTest {
 
         BigDecimal response = restTemplate.getForObject(url, BigDecimal.class);
 
-        assertThat(response).isNotNull();
-        assertThat(response).isEqualByComparingTo("10");
+        assertThat(response)
+                .isNotNull()
+                .isEqualByComparingTo("10");
+    }
+
+    @Test
+    void GIVEN_id_one_and_incorrect_algorithm_WHEN_get_request_THEN_500_is_returned() {
+        String url = UriComponentsBuilder
+                .fromUriString("/api/compute")
+                .queryParam("id", 1)
+                .queryParam("algorithm", "dummy")
+                .toUriString();
+
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

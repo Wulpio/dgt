@@ -8,7 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.baeldung</groupId>
     <artifactId>basicDbFee</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -55,7 +54,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.baeldung</groupId>
+            <groupId>com.wulpio</groupId>
             <artifactId>gateway</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>

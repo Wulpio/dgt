@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BasicDbFeeCalculator {
+public class BasicDbFeeCalculatorApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(BasicDbFeeCalculator.class, args);
+        SpringApplication.run(BasicDbFeeCalculatorApp.class, args);
     }
 
 }

@@ -16,12 +16,13 @@ class BasicTableFeeCalculatorTest {
     private FeesCalculator feesCalculator;
 
     @Test
-    void GIVEN_correct_request_WHEN_calculate_THEN_correct_response_is_returned() {
+    void GIVEN_request_with_id_1_WHEN_calculate_THEN_1_dot_1_is_returned() {
 
         BigDecimal calculate = feesCalculator.calculate(1L);
 
-        assertThat(calculate).isNotNull();
-        assertThat(calculate).isEqualByComparingTo("1.1");
+        assertThat(calculate)
+                .isNotNull()
+                .isEqualByComparingTo("1.1");
     }
 
 }

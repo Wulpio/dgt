@@ -11,9 +11,11 @@ class ConstantFeeCalculatorTest {
     private final ConstantFeeCalculator calculator = new ConstantFeeCalculator();
 
     @Test
-    void GIVEN_transaction_with_id_1_WHEN_isEqualByComparingTo_THEN_10_is_returned() {
+    void GIVEN_transaction_with_id_1_WHEN_calculate_THEN_10_is_returned() {
         BigDecimal calculate = calculator.calculate(1L);
 
-        assertThat(calculate).isEqualByComparingTo(BigDecimal.TEN);
+        assertThat(calculate)
+                .isNotNull()
+                .isEqualByComparingTo(BigDecimal.TEN);
     }
 }
