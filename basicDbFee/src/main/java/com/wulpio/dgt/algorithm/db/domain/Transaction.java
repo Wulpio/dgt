@@ -1,4 +1,4 @@
-package com.wulpio.dgt.domain;
+package com.wulpio.dgt.algorithm.db.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

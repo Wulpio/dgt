@@ -1,4 +1,4 @@
-package com.wulpio.dgt.core;
+package com.wulpio.dgt.algorithm.db.core;
 
 import com.wulpio.dtg.gtw.FeesCalculator;
 import org.junit.jupiter.api.Test;

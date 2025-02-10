@@ -1,4 +1,4 @@
-package com.wulpio.dgt.contant.service;
+package com.wulpio.dgt.algorithm.constant.service;
 
 import com.wulpio.dtg.gtw.FeesCalculator;
 import org.springframework.stereotype.Service;
